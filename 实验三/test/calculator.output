@@ -1,0 +1,338 @@
+Terminals unused in grammar
+
+   MOD
+   AND
+   OR
+
+
+Grammar
+
+    0 $accept: program $end
+
+    1 program: program statement '\n'
+    2        | /* empty */
+
+    3 statement: expr
+    4          | VARIABLE EQUALS expr
+
+    5 expr: expr PLUS term
+    6     | expr MINUS term
+    7     | term
+
+    8 term: term TIMES factor
+    9     | term DIVIDE factor
+   10     | factor
+
+   11 factor: primary
+   12       | LPAREN expr RPAREN
+
+   13 primary: INTEGER
+   14        | FLOAT
+   15        | VARIABLE
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+'\n' (10) 1
+error (256)
+INTEGER (258) 13
+FLOAT (259) 14
+VARIABLE (260) 4 15
+PLUS (261) 5
+MINUS (262) 6
+TIMES (263) 8
+DIVIDE (264) 9
+MOD (265)
+AND (266)
+OR (267)
+EQUALS (268) 4
+LPAREN (269) 12
+RPAREN (270) 12
+
+
+Nonterminals, with rules where they appear
+
+$accept (17)
+    on left: 0
+program (18)
+    on left: 1 2, on right: 0 1
+statement (19)
+    on left: 3 4, on right: 1
+expr (20)
+    on left: 5 6 7, on right: 3 4 5 6 12
+term (21)
+    on left: 8 9 10, on right: 5 6 7 8 9
+factor (22)
+    on left: 11 12, on right: 8 9 10
+primary (23)
+    on left: 13 14 15, on right: 11
+
+
+State 0
+
+    0 $accept: . program $end
+
+    $default  reduce using rule 2 (program)
+
+    program  go to state 1
+
+
+State 1
+
+    0 $accept: program . $end
+    1 program: program . statement '\n'
+
+    $end      shift, and go to state 2
+    INTEGER   shift, and go to state 3
+    FLOAT     shift, and go to state 4
+    VARIABLE  shift, and go to state 5
+    LPAREN    shift, and go to state 6
+
+    statement  go to state 7
+    expr       go to state 8
+    term       go to state 9
+    factor     go to state 10
+    primary    go to state 11
+
+
+State 2
+
+    0 $accept: program $end .
+
+    $default  accept
+
+
+State 3
+
+   13 primary: INTEGER .
+
+    $default  reduce using rule 13 (primary)
+
+
+State 4
+
+   14 primary: FLOAT .
+
+    $default  reduce using rule 14 (primary)
+
+
+State 5
+
+    4 statement: VARIABLE . EQUALS expr
+   15 primary: VARIABLE .
+
+    EQUALS  shift, and go to state 12
+
+    $default  reduce using rule 15 (primary)
+
+
+State 6
+
+   12 factor: LPAREN . expr RPAREN
+
+    INTEGER   shift, and go to state 3
+    FLOAT     shift, and go to state 4
+    VARIABLE  shift, and go to state 13
+    LPAREN    shift, and go to state 6
+
+    expr     go to state 14
+    term     go to state 9
+    factor   go to state 10
+    primary  go to state 11
+
+
+State 7
+
+    1 program: program statement . '\n'
+
+    '\n'  shift, and go to state 15
+
+
+State 8
+
+    3 statement: expr .
+    5 expr: expr . PLUS term
+    6     | expr . MINUS term
+
+    PLUS   shift, and go to state 16
+    MINUS  shift, and go to state 17
+
+    $default  reduce using rule 3 (statement)
+
+
+State 9
+
+    7 expr: term .
+    8 term: term . TIMES factor
+    9     | term . DIVIDE factor
+
+    TIMES   shift, and go to state 18
+    DIVIDE  shift, and go to state 19
+
+    $default  reduce using rule 7 (expr)
+
+
+State 10
+
+   10 term: factor .
+
+    $default  reduce using rule 10 (term)
+
+
+State 11
+
+   11 factor: primary .
+
+    $default  reduce using rule 11 (factor)
+
+
+State 12
+
+    4 statement: VARIABLE EQUALS . expr
+
+    INTEGER   shift, and go to state 3
+    FLOAT     shift, and go to state 4
+    VARIABLE  shift, and go to state 13
+    LPAREN    shift, and go to state 6
+
+    expr     go to state 20
+    term     go to state 9
+    factor   go to state 10
+    primary  go to state 11
+
+
+State 13
+
+   15 primary: VARIABLE .
+
+    $default  reduce using rule 15 (primary)
+
+
+State 14
+
+    5 expr: expr . PLUS term
+    6     | expr . MINUS term
+   12 factor: LPAREN expr . RPAREN
+
+    PLUS    shift, and go to state 16
+    MINUS   shift, and go to state 17
+    RPAREN  shift, and go to state 21
+
+
+State 15
+
+    1 program: program statement '\n' .
+
+    $default  reduce using rule 1 (program)
+
+
+State 16
+
+    5 expr: expr PLUS . term
+
+    INTEGER   shift, and go to state 3
+    FLOAT     shift, and go to state 4
+    VARIABLE  shift, and go to state 13
+    LPAREN    shift, and go to state 6
+
+    term     go to state 22
+    factor   go to state 10
+    primary  go to state 11
+
+
+State 17
+
+    6 expr: expr MINUS . term
+
+    INTEGER   shift, and go to state 3
+    FLOAT     shift, and go to state 4
+    VARIABLE  shift, and go to state 13
+    LPAREN    shift, and go to state 6
+
+    term     go to state 23
+    factor   go to state 10
+    primary  go to state 11
+
+
+State 18
+
+    8 term: term TIMES . factor
+
+    INTEGER   shift, and go to state 3
+    FLOAT     shift, and go to state 4
+    VARIABLE  shift, and go to state 13
+    LPAREN    shift, and go to state 6
+
+    factor   go to state 24
+    primary  go to state 11
+
+
+State 19
+
+    9 term: term DIVIDE . factor
+
+    INTEGER   shift, and go to state 3
+    FLOAT     shift, and go to state 4
+    VARIABLE  shift, and go to state 13
+    LPAREN    shift, and go to state 6
+
+    factor   go to state 25
+    primary  go to state 11
+
+
+State 20
+
+    4 statement: VARIABLE EQUALS expr .
+    5 expr: expr . PLUS term
+    6     | expr . MINUS term
+
+    PLUS   shift, and go to state 16
+    MINUS  shift, and go to state 17
+
+    $default  reduce using rule 4 (statement)
+
+
+State 21
+
+   12 factor: LPAREN expr RPAREN .
+
+    $default  reduce using rule 12 (factor)
+
+
+State 22
+
+    5 expr: expr PLUS term .
+    8 term: term . TIMES factor
+    9     | term . DIVIDE factor
+
+    TIMES   shift, and go to state 18
+    DIVIDE  shift, and go to state 19
+
+    $default  reduce using rule 5 (expr)
+
+
+State 23
+
+    6 expr: expr MINUS term .
+    8 term: term . TIMES factor
+    9     | term . DIVIDE factor
+
+    TIMES   shift, and go to state 18
+    DIVIDE  shift, and go to state 19
+
+    $default  reduce using rule 6 (expr)
+
+
+State 24
+
+    8 term: term TIMES factor .
+
+    $default  reduce using rule 8 (term)
+
+
+State 25
+
+    9 term: term DIVIDE factor .
+
+    $default  reduce using rule 9 (term)

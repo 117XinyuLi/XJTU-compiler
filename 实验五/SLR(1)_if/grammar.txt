@@ -1,0 +1,16 @@
+S
+14
+S->H
+H->i(E)t(E)e(E)
+E->E+T
+E->E-T
+E->T
+T->T*F
+T->T/F
+T->F
+F->(E)
+F->a
+F->b
+F->c
+F->d
+F->e

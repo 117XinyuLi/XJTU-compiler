@@ -1,0 +1,18 @@
+//program 4: input 3 numbers, find the largest
+//one, and output it .
+{
+	int a,b,c;
+	int lg;
+	bool cond;
+
+	read  a;	read  b;	read  c;
+	
+	cond := a > b  ;
+	if  cond  then  lg = a ;
+	else  lg = b ;
+	
+	cond := lg < c ;
+	if  cond  then  lg = c ;
+
+	write lg  ;
+}

@@ -1,0 +1,9 @@
+while  x > 0 do 
+a:=1 
+b:=2
+end while
+if x>0 then
+c:=3
+else
+d:=3
+end if

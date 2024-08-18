@@ -1,0 +1,18 @@
+/* program 5: find all numbers which is 
+ * divisible by 3  between 1 and 12 .
+ */
+{
+	int  number, res ;
+	bool  cond1, cond2  ;
+
+	number = 1 ;
+	cond1 := number <= 12 ;
+	while cond1 do 
+	{
+		res = number - ( number / 3 ) * 3 ;
+		cond2 := res == 0  ;
+		if cond2 then write number ;
+		number = number + 1 ;
+		cond1 := number <= 12 ;
+	}
+}

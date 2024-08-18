@@ -1,0 +1,13 @@
+//program 7: read  in two numbers and do some calculations. 
+{
+	int a, b, c  ;
+	read a ;
+	read b ;
+
+	//Test Expr().
+	a = a + 1 + 2 * 3 * 4 ;
+	b = b * 8 / 2 / 4 ;
+	c = ( a + b ) * ( a - b ) ;
+
+	write c  ;
+}

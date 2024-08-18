@@ -1,0 +1,9 @@
+//program 2: read  in and add two numbers,
+//then print the result . 
+{
+	int a, b, c  ;
+	read a ;
+	read b ;
+	c = a + b ;
+	write c  ;
+}

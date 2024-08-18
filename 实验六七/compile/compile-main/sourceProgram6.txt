@@ -1,0 +1,8 @@
+//program 6: no decls in program .
+//NO errors in Syntax Checking. 
+//Undeclared id errors should be reported in Symantic Checking. 
+{	
+	a = -1 ;
+	b = a - 1;	
+	write a;	
+}

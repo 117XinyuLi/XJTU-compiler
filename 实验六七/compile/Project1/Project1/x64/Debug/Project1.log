@@ -1,0 +1,11 @@
+﻿  FileName.cpp
+C:\Users\13151\Desktop\编译原理\实验\实验六七\compile\compile-main\lexical_analyzer.h(209,14): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\13151\Desktop\编译原理\实验\实验六七\compile\compile-main\lexical_analyzer.h(224,14): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\13151\Desktop\编译原理\实验\实验六七\compile\compile-main\lexical_analyzer.h(225,14): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\13151\Desktop\编译原理\实验\实验六七\compile\compile-main\lexical_analyzer.h(244,14): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\13151\Desktop\编译原理\实验\实验六七\compile\compile-main\lexical_analyzer.h(245,14): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\13151\Desktop\编译原理\实验\实验六七\compile\compile-main\lexical_analyzer.h(317,34): warning C4267: “+=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\13151\Desktop\编译原理\实验\实验六七\compile\compile-main\lexical_analyzer.h(368,26): warning C4267: “+=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\13151\Desktop\编译原理\实验\实验六七\compile\compile-main\lexical_analyzer.h(398,26): warning C4267: “+=”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\13151\Desktop\编译原理\实验\实验六七\compile\compile-main\lexical_analyzer.h(404,26): warning C4267: “+=”: 从“size_t”转换到“int”，可能丢失数据
+  Project1.vcxproj -> C:\Users\13151\Desktop\编译原理\实验\实验六七\compile\Project1\x64\Debug\Project1.exe

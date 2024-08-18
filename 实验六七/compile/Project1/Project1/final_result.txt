@@ -1,0 +1,69 @@
+		.data
+		input_stack:.space 1024
+		input_buffer: .word 0
+		int_stack:  .word 128
+		bool_stack:  .byte 128 
+		a: .word 0
+		b: .word 0
+		c: .word 0
+		.text
+	
+		.globl main
+	
+		main:
+		#初始化栈
+		#int栈初始化,t8为int栈指针
+		la $t8, int_stack
+		addiu $t8, $t8, 508
+		#bool栈初始化
+		la $t9, bool_stack
+		addiu $t9, $t9, 127
+		li $t1, 1
+		#t1入栈
+		addiu $t8, $t8, -4
+		sw $t1, 0($t8)
+		# 将栈顶元素写回
+		#出栈到t1
+		lw $t1, 0($t8)
+		addiu $t8, $t8, 4
+		la $t2, a
+		sw $t1, 0($t2)
+		li $t1, 2
+		#t1入栈
+		addiu $t8, $t8, -4
+		sw $t1, 0($t8)
+		# 将栈顶元素写回
+		#出栈到t1
+		lw $t1, 0($t8)
+		addiu $t8, $t8, 4
+		la $t2, b
+		sw $t1, 0($t2)
+		lw $t1, a
+		#t1入栈
+		addiu $t8, $t8, -4
+		sw $t1, 0($t8)
+		lw $t1, b
+		#t1入栈
+		addiu $t8, $t8, -4
+		sw $t1, 0($t8)
+		# 运算取两个栈顶
+		#出栈到t1与t2
+		lw $t1, 0($t8)
+		addiu $t8, $t8, 4
+		lw $t2, 0($t8)
+		addiu $t8, $t8, 4
+		# 加法
+		addu $t1, $t1, $t2
+		#t1入栈
+		addiu $t8, $t8, -4
+		sw $t1, 0($t8)
+		# 将栈顶元素写回
+		#出栈到t1
+		lw $t1, 0($t8)
+		addiu $t8, $t8, 4
+		la $t2, c
+		sw $t1, 0($t2)
+		li $v0, 10
+	
+		syscall
+	
